@@ -1,0 +1,117 @@
+[
+  {
+    "time": 1384930703,
+    "seqNo": 1,
+    "scriptId": null,
+    "historyId": "25201737009624085754d8b3e81-fba5-405b-b333-1435cfed8bc9",
+    "updateSize": 1183,
+    "ast": {
+      "textVersion": "v2.2,js,ctx",
+      "jsonVersion": "v1.0,resolved,short",
+      "name": "sumUpperBound",
+      "comment": "",
+      "autoIcon": "Binoculars",
+      "autoColor": "#007FFF",
+      "platform": "current",
+      "rootId": "x7xpfUqxonr4z2IFdZ5iqesh",
+      "showAd": false,
+      "isLibrary": false,
+      "allowExport": false,
+      "hasUniqueIds": false,
+      "decls": [
+        {
+          "name": "main",
+          "inParameters": [],
+          "outParameters": [],
+          "isPrivate": false,
+          "isOffloaded": false,
+          "isTest": false,
+          "isAsync": false,
+          "nodeType": "action",
+          "body": [
+            {
+              "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 ,:= ,0",
+              "nodeType": "exprStmt",
+              "id": "ZCdh4m9RdPALIm0rpCwk3aKu",
+              "locals": [
+                {
+                  "name": "s",
+                  "type": "Number",
+                  "nodeType": "localDef",
+                  "id": "ZCdh4m9RdPALIm0rpCwk3aKuL0"
+                }
+              ]
+            },
+            {
+              "bound": ",1 ,0",
+              "body": [
+                {
+                  "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 ,:= $ZCdh4m9RdPALIm0rpCwk3aKuL0 ,+ $IBPpdha2f8S2LUMpn1lefG4HB0",
+                  "nodeType": "exprStmt",
+                  "id": "BPbCwV3KeVsZcNpYesAxNQWd",
+                  "locals": []
+                }
+              ],
+              "nodeType": "for",
+              "id": "IBPpdha2f8S2LUMpn1lefG4H",
+              "locals": [
+                {
+                  "name": "i",
+                  "type": "Number",
+                  "nodeType": "localDef",
+                  "id": "IBPpdha2f8S2LUMpn1lefG4HB0"
+                }
+              ]
+            },
+            {
+              "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 .to_string .post_to_wall",
+              "nodeType": "exprStmt",
+              "id": "f4dNgNv71t2pZskk8L1haffj",
+              "locals": []
+            }
+          ],
+          "id": "xjzCnqWOudnj6h132SVkPCaZ"
+        }
+      ],
+      "deletedDecls": [],
+      "nodeType": "app",
+      "id": "app"
+    }
+  },
+  {
+    "time": 1384930713,
+    "seqNo": 2,
+    "scriptId": null,
+    "historyId": "25201737008689746636fc49886-0fd0-4971-a6fe-cd704a97eee3",
+    "updateSize": 46,
+    "updates": {
+      "IBPpdha2f8S2LUMpn1lefG4H": {
+        "bound": ",1 ,1"
+      }
+    }
+  },
+  {
+    "time": 1384930723,
+    "seqNo": 3,
+    "scriptId": null,
+    "historyId": "2520173700761946895fa850a13-6c28-4f50-9ab4-aa9ef56aa615",
+    "updateSize": 2,
+    "updates": {}
+  },
+  {
+    "time": 1384930730,
+    "seqNo": 4,
+    "scriptId": null,
+    "historyId": "25201737006996051435967d532-5b02-48f5-9a9a-df91921dd0d1",
+    "updateSize": 2,
+    "updates": {}
+  },
+  {
+    "time": 1384930732,
+    "seqNo": 5,
+    "scriptId": "tkjtgiyt",
+    "historyId": "2520173700679762155cf436882-d715-4eb6-9e8d-727d508f209b",
+    "updateSize": 2,
+    "updates": {}
+  }
+]
