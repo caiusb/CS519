@@ -32,7 +32,7 @@ public class History {
 		parseHistory(historyJSON, owner);
 	}
 
-	public void parseHistory(String historyJSON, String owner) {
+	private void parseHistory(String historyJSON, String owner) {
 		Object listOfOperations = JSONValue.parse(historyJSON);
 		this.listOfOperations = (List<Map>) listOfOperations;
 		Map initialEvent = this.listOfOperations.get(0);
