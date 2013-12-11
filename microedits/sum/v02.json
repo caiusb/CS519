@@ -30,15 +30,15 @@
           "nodeType": "action",
           "body": [
             {
-              "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 ,:= ,0",
+              "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 ,:= ,0",
               "nodeType": "exprStmt",
-              "id": "xxrAQadpx218U7eBjj1fDq1f",
+              "id": "ZCdh4m9RdPALIm0rpCwk3aKu",
               "locals": [
                 {
                   "name": "s",
                   "type": "Number",
                   "nodeType": "localDef",
-                  "id": "xxrAQadpx218U7eBjj1fDq1fL0"
+                  "id": "ZCdh4m9RdPALIm0rpCwk3aKuL0"
                 }
               ]
             },
@@ -46,31 +46,31 @@
               "bound": ",1 ,0",
               "body": [
                 {
-                  "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 ,:= $xxrAQadpx218U7eBjj1fDq1fL0 ,+ $b2hfnsh6T6KP1rq29KSYNBYiB0",
+                  "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 ,:= $ZCdh4m9RdPALIm0rpCwk3aKuL0 ,+ $IBPpdha2f8S2LUMpn1lefG4HB0",
                   "nodeType": "exprStmt",
-                  "id": "Mk59PRqnpNVeXggvLSRaMFLh",
+                  "id": "BPbCwV3KeVsZcNpYesAxNQWd",
                   "locals": []
                 }
               ],
               "nodeType": "for",
-              "id": "b2hfnsh6T6KP1rq29KSYNBYi",
+              "id": "IBPpdha2f8S2LUMpn1lefG4H",
               "locals": [
                 {
                   "name": "i",
                   "type": "Number",
                   "nodeType": "localDef",
-                  "id": "b2hfnsh6T6KP1rq29KSYNBYiB0"
+                  "id": "IBPpdha2f8S2LUMpn1lefG4HB0"
                 }
               ]
             },
             {
-              "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 .to_string .post_to_wall",
+              "expr": "$ZCdh4m9RdPALIm0rpCwk3aKuL0 .to_string .post_to_wall",
               "nodeType": "exprStmt",
-              "id": "Q4j4PceLv0SVp4Qjf94Q2RnL",
+              "id": "f4dNgNv71t2pZskk8L1haffj",
               "locals": []
             }
           ],
-          "id": "UTucwqZdV3T68p8QljWz4geR"
+          "id": "xjzCnqWOudnj6h132SVkPCaZ"
         }
       ],
       "deletedDecls": [],
@@ -85,7 +85,7 @@
     "historyId": "25201737008689746636fc49886-0fd0-4971-a6fe-cd704a97eee3",
     "updateSize": 46,
     "updates": {
-      "b2hfnsh6T6KP1rq29KSYNBYi": {
+      "IBPpdha2f8S2LUMpn1lefG4H": {
         "bound": ",1 ,1"
       }
     }
