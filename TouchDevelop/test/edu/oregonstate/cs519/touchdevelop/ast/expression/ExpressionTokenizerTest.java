@@ -15,66 +15,59 @@ import edu.oregonstate.cs519.touchdevelop.ast.ASTNode;
 
 public class ExpressionTokenizerTest {
 
-	private static ExpressionTokenizer tokenizer;
-
-	@BeforeClass
-	public static void setup() {
-		tokenizer = new ExpressionTokenizer();
-	}
-
 	// @formatter:off
 	@Test
 	public void testArithOp() {
 		assertTokens("$mNMHXmR6bIKpou2PYSrG7Dv4L0 ,:= ,2 ,/ ,3", 
-				tokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
-				tokenizer.createOperator(":="),
-				tokenizer.createOperator("2"),
-				tokenizer.createOperator("/"),
-				tokenizer.createOperator("3"));
+				ExpressionTokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
+				ExpressionTokenizer.createOperator(":="),
+				ExpressionTokenizer.createOperator("2"),
+				ExpressionTokenizer.createOperator("/"),
+				ExpressionTokenizer.createOperator("3"));
 	}
 	
 	@Test
 	public void testComplexArithOp() throws Exception {
 		assertTokens("$xBTNp286Ucy26f9tjIaqATEqL0 ,:= ,3 ,+ $mNMHXmR6bIKpou2PYSrG7Dv4L0 ,- ,5", 
-				tokenizer.createLocalRef("xBTNp286Ucy26f9tjIaqATEqL0"),
-				tokenizer.createOperator(":="),
-				tokenizer.createOperator("3"),
-				tokenizer.createOperator("+"),
-				tokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
-				tokenizer.createOperator("-"),
-				tokenizer.createOperator("5"));
+				ExpressionTokenizer.createLocalRef("xBTNp286Ucy26f9tjIaqATEqL0"),
+				ExpressionTokenizer.createOperator(":="),
+				ExpressionTokenizer.createOperator("3"),
+				ExpressionTokenizer.createOperator("+"),
+				ExpressionTokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
+				ExpressionTokenizer.createOperator("-"),
+				ExpressionTokenizer.createOperator("5"));
 	}
 	
 	@Test
 	public void testMethodCall() throws Exception {
 		assertTokens("$xOlX69iyNsS9wnlj0uFrZtLbL0 ,:= :code #vVOK9ePVR7FvRuQgfyH6tNln ,( $mNMHXmR6bIKpou2PYSrG7Dv4L0 ,, $xBTNp286Ucy26f9tjIaqATEqL0 ,)", 
-				tokenizer.createLocalRef("xOlX69iyNsS9wnlj0uFrZtLbL0"),
-				tokenizer.createOperator(":="),
-				tokenizer.createSingletonRef("code"),
-				tokenizer.createPropertyRefDeclid("vVOK9ePVR7FvRuQgfyH6tNln"),
-				tokenizer.createOperator("("),
-				tokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
-				tokenizer.createOperator(","),
-				tokenizer.createLocalRef("xBTNp286Ucy26f9tjIaqATEqL0"),
-				tokenizer.createOperator(")"));
+				ExpressionTokenizer.createLocalRef("xOlX69iyNsS9wnlj0uFrZtLbL0"),
+				ExpressionTokenizer.createOperator(":="),
+				ExpressionTokenizer.createSingletonRef("code"),
+				ExpressionTokenizer.createPropertyRefDeclid("vVOK9ePVR7FvRuQgfyH6tNln"),
+				ExpressionTokenizer.createOperator("("),
+				ExpressionTokenizer.createLocalRef("mNMHXmR6bIKpou2PYSrG7Dv4L0"),
+				ExpressionTokenizer.createOperator(","),
+				ExpressionTokenizer.createLocalRef("xBTNp286Ucy26f9tjIaqATEqL0"),
+				ExpressionTokenizer.createOperator(")"));
 	}
 	
 	@Test
 	public void testBoolOp() {
 		assertTokens("$EWzImiHGvsT0TzruK4EXIh1wL0 ,:= T ,and F", 
-				tokenizer.createLocalRef("EWzImiHGvsT0TzruK4EXIh1wL0"),
-				tokenizer.createOperator(":="),
-				tokenizer.createBooleanLiteral((1 == 1) + ""),
-				tokenizer.createOperator("and"),
-				tokenizer.createBooleanLiteral((1 != 1) + ""));
+				ExpressionTokenizer.createLocalRef("EWzImiHGvsT0TzruK4EXIh1wL0"),
+				ExpressionTokenizer.createOperator(":="),
+				ExpressionTokenizer.createBooleanLiteral((1 == 1) + ""),
+				ExpressionTokenizer.createOperator("and"),
+				ExpressionTokenizer.createBooleanLiteral((1 != 1) + ""));
 	}
 	
 	@Test
 	public void testStringAndProperty() {
 		assertTokens("'asd .is_empty .post_to_wall", 
-				tokenizer.createStringLiteral("asd"),
-				tokenizer.createPropertyRefName("is empty"),
-				tokenizer.createPropertyRefName("post to wall"));
+				ExpressionTokenizer.createStringLiteral("asd"),
+				ExpressionTokenizer.createPropertyRefName("is empty"),
+				ExpressionTokenizer.createPropertyRefName("post to wall"));
 	}
 	
 	// @formatter:on
@@ -83,7 +76,7 @@ public class ExpressionTokenizerTest {
 		List<ASTNode> expected = new ArrayList<>();
 		expected.addAll(Arrays.asList(tokens));
 
-		List<ASTNode> actual = tokenizer.tokenize(inputString);
+		List<ASTNode> actual = ExpressionTokenizer.tokenize(inputString);
 		assertEqualsTokens(expected, actual);
 	}
 

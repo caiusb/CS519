@@ -8,8 +8,11 @@ import org.json.simple.JSONObject;
 import edu.oregonstate.cs519.touchdevelop.ast.ASTNode;
 
 public class ExpressionTokenizer {
-
-	private String uq(String s) {
+	
+	private ExpressionTokenizer() {
+	}
+	
+	private static String uq(String s) {
 		String r = "";
 		for (int i = 0; i < s.length(); ++i) {
 			char c = s.charAt(i);
@@ -25,7 +28,7 @@ public class ExpressionTokenizer {
 		return r;
 	}
 
-	public ASTNode oneToken(String s) {
+	public static ASTNode oneToken(String s) {
 		String v = s.substring(1);
 		switch (s.charAt(0)) {
 		case ',':
@@ -68,62 +71,62 @@ public class ExpressionTokenizer {
 //		return new ASTNode(obj);
 //	}
 
-	protected ASTNode createSingletonRef(String v) {
+	protected static ASTNode createSingletonRef(String v) {
 		JSONObject obj = createCoreJSON("singletonRef");
 		obj.put("name", v);
 
 		return new ASTNode(obj);
 	}
 
-	protected ASTNode createLocalRef(String v) {
+	protected static ASTNode createLocalRef(String v) {
 		JSONObject obj = createCoreJSON("localRef");
 		obj.put("localId", v);
 
 		return new ASTNode(obj);
 	}
 
-	protected ASTNode createBooleanLiteral(String s) {
+	protected static ASTNode createBooleanLiteral(String s) {
 		JSONObject obj = createCoreJSON("booleanLiteral");
 		obj.put("value", s);
 
 		return new ASTNode(obj);
 	}
 
-	protected ASTNode createStringLiteral(String v) {
+	protected static ASTNode createStringLiteral(String v) {
 		JSONObject obj = createCoreJSON("stringLiteral");
 		obj.put("value", v);
 
 		return new ASTNode(obj);
 	}
 
-	protected ASTNode createPropertyRefName(String v) {
+	protected static ASTNode createPropertyRefName(String v) {
 		JSONObject obj = createCoreJSON("propertyRef");
 		obj.put("name", v);
 
 		return new ASTNode(obj);
 	}
 
-	protected JSONObject createCoreJSON(String nodeType) {
+	protected static JSONObject createCoreJSON(String nodeType) {
 		JSONObject obj = new JSONObject();
 		Object put = obj.put("nodeType", nodeType);
 		return obj;
 	}
 
-	protected ASTNode createPropertyRefDeclid(String v) {
+	protected static ASTNode createPropertyRefDeclid(String v) {
 		JSONObject obj = createCoreJSON("propertyRef");
 		obj.put("declId", v);
 		
 		return new ASTNode(obj);
 	}
 
-	protected ASTNode createOperator(String op) {
+	protected static ASTNode createOperator(String op) {
 		JSONObject obj = createCoreJSON("operator");
 		obj.put("op", op);
 
 		return new ASTNode(obj);
 	}
 
-	public List<ASTNode> tokenize(String shortForm) {
+	public static List<ASTNode> tokenize(String shortForm) {
 		if (shortForm == null || shortForm.isEmpty())
 			return new ArrayList<>(); // handles "" and null; the code below is
 										// incorrect for ""
