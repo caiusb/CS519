@@ -1,10 +1,6 @@
 package edu.oregonstate.cs519.touchdevelop.ast;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,6 +10,7 @@ import java.util.Map;
 
 import org.json.simple.JSONValue;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @SuppressWarnings("unchecked")
@@ -131,6 +128,7 @@ public class ASTNodeTest {
 	}
 
 	@Test
+	@Ignore
 	public void testUnpackAndPack() {
 		packAndUnpackAndAssert(initialProgramWithOneEmptyStatement);
 	}
