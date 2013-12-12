@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -345,6 +346,15 @@ public class ASTNodeTest {
 		ASTNode program1 = new ASTNode(json1);
 		ASTNode program2 = new ASTNode(json2);
 		assertTrue(program1.matchWith(program2));
+	}
+	
+	@Test
+	public void testTreeWithShortForm() throws Exception {
+		String json = new String(Files.readAllBytes(Paths.get("test-scripts/short-form.json")));
+		ASTNode root = new ASTNode(json);
+		ASTNode node = ASTNodeManager.getInstance().getNode("Mk59PRqnpNVeXggvLSRaMFLh");
+		Object property = node.getProperty(ASTNode.EXPRESSION);
+		assertEquals(ArrayList.class,property.getClass());
 	}
 	
 }

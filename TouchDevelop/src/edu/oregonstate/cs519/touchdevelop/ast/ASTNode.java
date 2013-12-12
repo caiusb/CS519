@@ -10,6 +10,8 @@ import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import edu.oregonstate.cs519.touchdevelop.ast.expression.ExpressionTokenizer;
+
 public class ASTNode implements JSONAware {
 	
 	public static final String ID = "id";
@@ -41,6 +43,11 @@ public class ASTNode implements JSONAware {
 	public ASTNode(Map<String, Object> map, ASTNode parent) {
 		this.map = map;
 		this.parent = parent;
+		
+		if ("exprStmt".equals(getProperty(NODE_TYPE))) {
+			map.put(ASTNode.EXPRESSION, ExpressionTokenizer.tokenize((String) getProperty(EXPRESSION)));
+		}
+
 		ASTNodeManager.getInstance().addNode(this);
 		Set<String> keys = map.keySet();
 		for (String key : keys) {
@@ -82,6 +89,7 @@ public class ASTNode implements JSONAware {
 			contents = new ASTNode((Map) contents, this);
 			map.put(propertyName,contents);
 		}
+		
 		return contents;
 	}
 
@@ -227,6 +235,7 @@ public class ASTNode implements JSONAware {
 		}
 		
 		try {
+			ASTNodeManager.getInstance().addNode(this);
 			updateProperty(ID, node.getProperty(ID), DEFAULT_OWNER);
 		} catch (ConflictException e) {
 			return false;

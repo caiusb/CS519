@@ -1,0 +1,72 @@
+{
+  "textVersion": "v2.2,js,ctx",
+  "jsonVersion": "v1.0,resolved,short",
+  "name": "sum 2",
+  "comment": "",
+  "autoIcon": "Bullseye",
+  "autoColor": "#FDEE00",
+  "platform": "current",
+  "rootId": "x7xpfUqxonr4z2IFdZ5iqesh",
+  "showAd": false,
+  "isLibrary": false,
+  "allowExport": false,
+  "hasUniqueIds": false,
+  "decls": [
+    {
+      "name": "main",
+      "inParameters": [],
+      "outParameters": [],
+      "isPrivate": false,
+      "isOffloaded": false,
+      "isTest": false,
+      "isAsync": false,
+      "nodeType": "action",
+      "body": [
+        {
+          "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 ,:= ,0",
+          "nodeType": "exprStmt",
+          "id": "xxrAQadpx218U7eBjj1fDq1f",
+          "locals": [
+            {
+              "name": "s",
+              "type": "Number",
+              "nodeType": "localDef",
+              "id": "xxrAQadpx218U7eBjj1fDq1fL0"
+            }
+          ]
+        },
+        {
+          "bound": ",1 ,0",
+          "body": [
+            {
+              "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 ,:= $xxrAQadpx218U7eBjj1fDq1fL0 ,+ $b2hfnsh6T6KP1rq29KSYNBYiB0",
+              "nodeType": "exprStmt",
+              "id": "Mk59PRqnpNVeXggvLSRaMFLh",
+              "locals": []
+            }
+          ],
+          "nodeType": "for",
+          "id": "b2hfnsh6T6KP1rq29KSYNBYi",
+          "locals": [
+            {
+              "name": "i",
+              "type": "Number",
+              "nodeType": "localDef",
+              "id": "b2hfnsh6T6KP1rq29KSYNBYiB0"
+            }
+          ]
+        },
+        {
+          "expr": "$xxrAQadpx218U7eBjj1fDq1fL0 .to_string .post_to_wall",
+          "nodeType": "exprStmt",
+          "id": "Q4j4PceLv0SVp4Qjf94Q2RnL",
+          "locals": []
+        }
+      ],
+      "id": "UTucwqZdV3T68p8QljWz4geR"
+    }
+  ],
+  "deletedDecls": [],
+  "nodeType": "app",
+  "id": "app"
+}
