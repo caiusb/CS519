@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import edu.oregonstate.cs519.touchdevelop.ast.ASTNode;
+
 public class ExpressionTokenizer {
 
 	private String uq(String s) {
@@ -23,7 +25,7 @@ public class ExpressionTokenizer {
 		return r;
 	}
 
-	public JSONObject oneToken(String s) {
+	public ASTNode oneToken(String s) {
 		String v = s.substring(1);
 		switch (s.charAt(0)) {
 		case ',':
@@ -41,64 +43,64 @@ public class ExpressionTokenizer {
 			return createLocalRef(v);
 		case ':':
 			return createSingletonRef(uq(v));
-		case '?':
-			int cln = v.indexOf(':');
-			if (cln > 0)
-				return createPlaceHolderWithName((uq(v.substring(0, cln))), (uq(v.substring(cln + 1))));
-			else
-				return createPlaceHolder(uq(v));
+//		case '?':
+//			int cln = v.indexOf(':');
+//			if (cln > 0)
+//				return createPlaceHolderWithName((uq(v.substring(0, cln))), (uq(v.substring(cln + 1))));
+//			else
+//				return createPlaceHolder(uq(v));
 		default:
 			throw new Error("wrong short form: " + s);
 		}
 	}
 
-	protected JSONObject createPlaceHolder(String type) {
-		JSONObject obj = createCoreJSON("placeHolder");
-		obj.put(type, type);
+//	protected JSONObject createPlaceHolder(String type) {
+//		JSONObject obj = createCoreJSON("placeHolder");
+//		obj.put(type, type);
+//
+//		return obj;
+//	}
 
-		return obj;
-	}
+//	protected ASTNode createPlaceHolderWithName(String type, String name) {
+//		JSONObject obj = createPlaceHolder(type);
+//		obj.put("name", name);
+//
+//		return new ASTNode(obj);
+//	}
 
-	protected JSONObject createPlaceHolderWithName(String type, String name) {
-		JSONObject obj = createPlaceHolder(type);
-		obj.put("name", name);
-
-		return obj;
-	}
-
-	protected JSONObject createSingletonRef(String v) {
+	protected ASTNode createSingletonRef(String v) {
 		JSONObject obj = createCoreJSON("singletonRef");
 		obj.put("name", v);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
-	protected JSONObject createLocalRef(String v) {
+	protected ASTNode createLocalRef(String v) {
 		JSONObject obj = createCoreJSON("localRef");
 		obj.put("localId", v);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
-	protected JSONObject createBooleanLiteral(String s) {
+	protected ASTNode createBooleanLiteral(String s) {
 		JSONObject obj = createCoreJSON("booleanLiteral");
 		obj.put("value", s);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
-	protected JSONObject createStringLiteral(String v) {
+	protected ASTNode createStringLiteral(String v) {
 		JSONObject obj = createCoreJSON("stringLiteral");
 		obj.put("value", v);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
-	protected JSONObject createPropertyRefName(String v) {
+	protected ASTNode createPropertyRefName(String v) {
 		JSONObject obj = createCoreJSON("propertyRef");
 		obj.put("name", v);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
 	protected JSONObject createCoreJSON(String nodeType) {
@@ -107,25 +109,25 @@ public class ExpressionTokenizer {
 		return obj;
 	}
 
-	protected JSONObject createPropertyRefDeclid(String v) {
+	protected ASTNode createPropertyRefDeclid(String v) {
 		JSONObject obj = createCoreJSON("propertyRef");
 		obj.put("declId", v);
-
-		return obj;
+		
+		return new ASTNode(obj);
 	}
 
-	protected JSONObject createOperator(String op) {
+	protected ASTNode createOperator(String op) {
 		JSONObject obj = createCoreJSON("operator");
 		obj.put("op", op);
 
-		return obj;
+		return new ASTNode(obj);
 	}
 
-	public List<JSONObject> tokenize(String shortForm) {
+	public List<ASTNode> tokenize(String shortForm) {
 		if (shortForm == null || shortForm.isEmpty())
 			return new ArrayList<>(); // handles "" and null; the code below is
 										// incorrect for ""
-		List<JSONObject> tokens = new ArrayList<>();
+		List<ASTNode> tokens = new ArrayList<>();
 
 		for (String element : shortForm.split(" ")) {
 			tokens.add(oneToken(element));

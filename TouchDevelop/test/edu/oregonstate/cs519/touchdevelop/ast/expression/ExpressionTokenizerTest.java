@@ -7,8 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import edu.oregonstate.cs519.touchdevelop.ast.ASTNode;
 
 public class ExpressionTokenizerTest {
 
@@ -76,20 +79,20 @@ public class ExpressionTokenizerTest {
 	
 	// @formatter:on
 
-	private void assertTokens(String inputString, JSONObject... tokens) {
-		List<JSONObject> expected = new ArrayList<>();
+	private void assertTokens(String inputString, ASTNode... tokens) {
+		List<ASTNode> expected = new ArrayList<>();
 		expected.addAll(Arrays.asList(tokens));
 
-		List<JSONObject> actual = tokenizer.tokenize(inputString);
+		List<ASTNode> actual = tokenizer.tokenize(inputString);
 		assertEqualsTokens(expected, actual);
 	}
 
-	private void assertEqualsTokens(List<JSONObject> expected, List<JSONObject> actual) {
+	private void assertEqualsTokens(List<ASTNode> expected, List<ASTNode> actual) {
 
 		assertEquals(expected.size(), actual.size());
 
 		for (int i = 0; i < expected.size(); i++) {
-			assertJSONEqual(expected.get(i), actual.get(i));
+			assertJSONEqual((JSONObject) JSONValue.parse(expected.get(i).getJSON()), (JSONObject) JSONValue.parse(actual.get(i).getJSON()));
 		}
 	}
 
